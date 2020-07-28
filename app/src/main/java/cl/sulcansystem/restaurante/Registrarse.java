@@ -30,6 +30,7 @@ import cl.sulcansystem.restaurante.modelo.VerificadorContraseña;
 import cl.sulcansystem.restaurante.presentador.IPresenter;
 import cl.sulcansystem.restaurante.presentador.IPresenterView;
 import cl.sulcansystem.restaurante.presentador.Presentador;
+import cl.sulcansystem.restaurante.tipos_usuarios.PublicoGeneral;
 
 public class Registrarse extends AppCompatActivity implements IPresenterView{
 
@@ -84,6 +85,8 @@ public class Registrarse extends AppCompatActivity implements IPresenterView{
                                 tabla_usuario.child(edtTelefono.getText().toString()).setValue(usuario);
                                 Toast.makeText(Registrarse.this, "Usuario Registrado Satisfactoriamente...!!!", Toast.LENGTH_SHORT).show();
                                 Intent ingresar = new Intent(Registrarse.this, Ingresar.class);
+                                startActivity(ingresar);
+                                finish();
                             }else{
                                 Toast.makeText(Registrarse.this, "Las Contraseñas No Coinciden...!!!", Toast.LENGTH_SHORT).show();
 

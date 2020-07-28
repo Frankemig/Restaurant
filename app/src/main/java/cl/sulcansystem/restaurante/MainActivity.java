@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
             Intent ingresar = new Intent(MainActivity.this, Ingresar.class);
             startActivity(ingresar);
+            finish();
+
             }
         });
 
@@ -45,16 +47,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
             Intent registrarse = new Intent(MainActivity.this, Registrarse.class);
             startActivity(registrarse);
+            finish();
             }
         });
 
-        btnIngresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent ingresar = new Intent(MainActivity.this, Ingresar.class);
-                startActivity(ingresar);
-            }
-        });
+
 
     }
 }

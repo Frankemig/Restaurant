@@ -2,6 +2,7 @@ package cl.sulcansystem.restaurante.tipos_usuarios;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import cl.sulcansystem.restaurante.Ingresar;
+import cl.sulcansystem.restaurante.Menu;
 import cl.sulcansystem.restaurante.R;
 
 public class PublicoGeneral extends AppCompatActivity {
@@ -36,6 +38,14 @@ public static String txtUsuario = Ingresar.Nombre;
         txtQuienesSomos = (TextView)findViewById(R.id.txtquienes_somos);
         txtContactanos = (TextView)findViewById(R.id.txtcontactanos);
 
+        Typeface face = Typeface.createFromAsset(getAssets(),"fuentes/SCRIPTBL.TTF");
+        txtBienvenido.setTypeface(face);
+        txtNombreUsuario.setTypeface(face);
+        txtContactanos.setTypeface(face);
+        txtQuienesSomos.setTypeface(face);
+        txtDelivery.setTypeface(face);
+        txtReserva.setTypeface(face);
+
         reservas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,7 +58,9 @@ public static String txtUsuario = Ingresar.Nombre;
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(PublicoGeneral.this, "Estás Entrando a Delivery", Toast.LENGTH_SHORT).show();
+                Intent menu = new Intent(PublicoGeneral.this, Menu.class);
+                startActivity(menu);
+                finish();
             }
         });
 
