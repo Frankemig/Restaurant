@@ -13,6 +13,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
+
+import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,13 +33,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        initLog();
+
 
         btnIngresar = (Button) findViewById(R.id.btnIngresar);
         btnRegistrarse = (Button) findViewById(R.id.btnRegistrarse);
 
         txtBienvenido = (TextView) findViewById(R.id.txtBienvenido);
         txtSlogan = (TextView) findViewById(R.id.txtSlogan);
-        Typeface face = Typeface.createFromAsset(getAssets(),"fuentes/SCRIPTBL.TTF");
+        Typeface face = Typeface.createFromAsset(getAssets(), "fuentes/SCRIPTBL.TTF");
 
         txtSlogan.setTypeface(face);
         txtBienvenido.setTypeface(face);
@@ -44,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Intent ingresar = new Intent(MainActivity.this, Ingresar.class);
-            startActivity(ingresar);
-            finish();
+                Intent ingresar = new Intent(MainActivity.this, Ingresar.class);
+                startActivity(ingresar);
+                finish();
 
             }
         });
@@ -54,13 +59,20 @@ public class MainActivity extends AppCompatActivity {
         btnRegistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Intent registrarse = new Intent(MainActivity.this, Registrarse.class);
-            startActivity(registrarse);
-            finish();
+                Intent registrarse = new Intent(MainActivity.this, Registrarse.class);
+                startActivity(registrarse);
+                finish();
             }
         });
 
+        Picasso build = new Picasso.Builder(getApplicationContext())
+                .build();
+        Picasso.setSingletonInstance(build);
+    }
 
-
+    private void initLog() {
+        if (BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        }
     }
 }

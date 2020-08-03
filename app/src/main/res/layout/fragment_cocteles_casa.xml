@@ -1,12 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".menu_restaurant.aperitivos.CoctelesCasa">
 
 
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="@drawable/fondo_pantalla">
+
+        <ImageView
+            android:id="@+id/aperitivo"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.23"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_aperitivos_red" />
+
+        <TextView
+            android:id="@+id/txt_aperitivo"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="Aperitivos"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/aperitivo"
+            app:layout_constraintStart_toEndOf="@+id/aperitivo"
+            app:layout_constraintTop_toTopOf="@+id/aperitivo" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerAperitivos"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/aperitivo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

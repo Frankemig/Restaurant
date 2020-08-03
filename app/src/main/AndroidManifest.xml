@@ -24,6 +24,7 @@
         <activity android:name=".tipos_usuarios.PublicoGeneral" />
         <activity android:name=".Registrarse" />
         <activity android:name=".Ingresar" />
+        <activity android:name=".aperitivos.DisplayMessageActivity" />
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,15 +1,20 @@
 package cl.sulcansystem.restaurante;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import cl.sulcansystem.restaurante.aperitivos.DisplayMessageActivity;
+
 public class Menu extends AppCompatActivity {
+
+    private static final String TAG = "Menu";
 
     TextView txt_aperitivos, txt_bebestibles, txt_vinos, txt_entradas, txt_fondos, txt_postres, menu;
     ImageView aperitivos, bebestibles, vinos, entradas, fondos, postres, logo;
@@ -47,7 +52,9 @@ public class Menu extends AppCompatActivity {
         aperitivos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Aquí se Debe Inflar el Fragmento Aperitivos
+                Log.d(TAG, "onClick: aperitivos");
+
+                start();
             }
         });
 
@@ -85,8 +92,13 @@ public class Menu extends AppCompatActivity {
                 //Aquí se Debe Inflar el Fragmento Postres
             }
         });
-
     }
+
+    private void start() {
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onBackPressed() {
         Intent main = new Intent(Menu.this,MainActivity.class);
