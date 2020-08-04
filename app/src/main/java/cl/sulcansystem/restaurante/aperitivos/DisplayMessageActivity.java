@@ -50,23 +50,24 @@ public class DisplayMessageActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Timber.d("onDataChange() called");
 
-                Map<String, List<Productos>> arbolProductos = new HashMap<>();
+                //Map<String, List<Productos>> arbolProductos = new HashMap<>();
                 snapshot.child("Aperitivos").getChildren().forEach(dataSnapshot -> {
 
                     List<Productos> productos = new ArrayList<>();
+                    productos.add(new Productos(getName(dataSnapshot.getKey()), "", "", ""));
                     dataSnapshot.getChildren().forEach(dataSnapshot2 -> {
                         productos.add(dataSnapshot2.getValue(Productos.class));
                     });
 
+                    productosList.addAll(productos);
 
-                    arbolProductos.put(dataSnapshot.getKey(), productos);
                 });
 
 
-                arbolProductos.forEach((s, productos) -> Timber.d(s + " - " + productos));
+                //arbolProductos.forEach((s, productos) -> Timber.d(s + " - " + productos));
 
-                productosList.addAll(arbolProductos.get("Piscos_y_Sour´s"));
-                Timber.d("productosList - size: " + productosList.size());
+                //productosList.addAll(arbolProductos.get("Piscos_y_Sour´s"));
+                //Timber.d("productosList - size: " + productosList.size());
                 productAdapter.notifyDataSetChanged();
             }
 
@@ -77,4 +78,17 @@ public class DisplayMessageActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Esto es un parche horrible pero necesario en este momento
+     * @param key
+     * @return
+     */
+    private String getName(String key) {
+        switch (key) {
+            case "Clasicos": return "Clásicos";
+            case "Piscos_y_Sour's": return "Piscos y sour's";
+            default:
+                return key;
+        }
+    }
 }
