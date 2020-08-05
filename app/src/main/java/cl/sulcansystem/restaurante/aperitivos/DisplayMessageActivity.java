@@ -1,6 +1,7 @@
 package cl.sulcansystem.restaurante.aperitivos;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,11 +13,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import cl.sulcansystem.restaurante.R;
 import cl.sulcansystem.restaurante.modelo.Productos;
@@ -27,6 +25,9 @@ public class DisplayMessageActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<Productos> productosList = new ArrayList<>();
     ProductAdapter productAdapter;
+    String target;
+
+    TextView tvTitle;
 
 
     @Override
@@ -34,10 +35,16 @@ public class DisplayMessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_cocteles_casa);
 
+        tvTitle = findViewById(R.id.txt_aperitivo);
+
+        target = getIntent().getExtras().get("TARGET").toString();
+
         recyclerView = findViewById(R.id.recyclerAperitivos);
 
         productAdapter = new ProductAdapter(productosList);
         recyclerView.setAdapter(productAdapter);
+
+        tvTitle.setText(target);
 
         loadData();
     }
@@ -51,12 +58,20 @@ public class DisplayMessageActivity extends AppCompatActivity {
                 Timber.d("onDataChange() called");
 
                 //Map<String, List<Productos>> arbolProductos = new HashMap<>();
-                snapshot.child("Aperitivos").getChildren().forEach(dataSnapshot -> {
+                snapshot.child(target).getChildren().forEach(dataSnapshot -> {
 
                     List<Productos> productos = new ArrayList<>();
                     productos.add(new Productos(getName(dataSnapshot.getKey()), "", "", ""));
                     dataSnapshot.getChildren().forEach(dataSnapshot2 -> {
-                        productos.add(dataSnapshot2.getValue(Productos.class));
+                        Timber.d("dataSnapshop2 " + dataSnapshot2.getValue());
+                        try {
+                            if (dataSnapshot2.getValue() != null) {
+                                productos.add(dataSnapshot2.getValue(Productos.class));
+                            }
+                        } catch (Exception exc) {
+
+                        }
+
                     });
 
                     productosList.addAll(productos);
@@ -80,13 +95,16 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     /**
      * Esto es un parche horrible pero necesario en este momento
+     *
      * @param key
      * @return
      */
     private String getName(String key) {
         switch (key) {
-            case "Clasicos": return "Clásicos";
-            case "Piscos_y_Sour's": return "Piscos y sour's";
+            case "Clasicos":
+                return "Clásicos";
+            case "Piscos_y_Sour's":
+                return "Piscos y sour's";
             default:
                 return key;
         }

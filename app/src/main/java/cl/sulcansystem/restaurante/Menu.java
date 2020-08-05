@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -49,53 +48,43 @@ public class Menu extends AppCompatActivity {
         txt_fondos.setTypeface(face);
         txt_postres.setTypeface(face);
 
-        aperitivos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "onClick: aperitivos");
-
-                start();
-            }
+        aperitivos.setOnClickListener(view -> {
+            Log.d(TAG, "onClick: aperitivos");
+            start("Aperitivos");
         });
 
-        bebestibles.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Aquí se Debe Inflar el Fragmento Bebestibles
-            }
+        bebestibles.setOnClickListener(view -> {
+            Log.d(TAG, "onClick: Jugos_y_Bebidas");
+            start("Jugos_y_Bebidas");
         });
 
-        vinos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Aquí se Debe Inflar el Fragmento Vinos
-            }
+        vinos.setOnClickListener(view -> {
+            Log.d(TAG, "onClick: Vinos");
+            start("Vinos");
         });
 
-        entradas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Aquí se Debe Inflar el Fragmento Entradas
-            }
+        entradas.setOnClickListener(view -> {
+            Log.d(TAG, "onClick: Entradas");
+            start("Entradas");
         });
 
-        fondos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Aquí se Debe Inflar el Fragmento Fondos
-            }
+        fondos.setOnClickListener(view -> {
+            Log.d(TAG, "onClick: Fondos");
+            start("Fondos");
         });
 
-        postres.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Aquí se Debe Inflar el Fragmento Postres
-            }
+        postres.setOnClickListener(view -> {
+            //Aquí se Debe Inflar el Fragmento Postres
+            Log.d(TAG, "onClick: Postres_y_Cafés");
+            start("Postres_y_Cafés");
         });
     }
 
-    private void start() {
+    private void start(String target) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("TARGET", target);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
