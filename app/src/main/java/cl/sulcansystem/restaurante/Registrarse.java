@@ -32,7 +32,7 @@ import cl.sulcansystem.restaurante.presentador.IPresenterView;
 import cl.sulcansystem.restaurante.presentador.Presentador;
 import cl.sulcansystem.restaurante.tipos_usuarios.PublicoGeneral;
 
-public class Registrarse extends AppCompatActivity implements IPresenterView{
+public class Registrarse extends AppCompatActivity implements IPresenterView {
 
     private static final String TAG = "MainActivity";
     EditText edtTelefono, edtNombre, edtContraseña, edtConfirmacion, edtDireccion, edtComuna, edtMail;
@@ -72,35 +72,61 @@ public class Registrarse extends AppCompatActivity implements IPresenterView{
                 tabla_usuario.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(edtTelefono.getText().toString().isEmpty()) {
-                            Toast.makeText(Registrarse.this, "El Número de Teléfono es Requerido...", Toast.LENGTH_SHORT).show();
+                        if (edtTelefono.getText().toString().isEmpty()) {
+                            Toast.makeText(Registrarse.this, "El Número de Teléfono es Requerido...", Toast.LENGTH_LONG).show();
                             mDialog.dismiss();
-                        }else if(edtTelefono.getText().toString().length()!=9) {
-                            Toast.makeText(Registrarse.this, "El Número de Teléfono Debe Tener 9 Dígitos...", Toast.LENGTH_SHORT).show();
+                        } else if (!edtTelefono.getText().toString().startsWith("9")) {
+                            Toast.makeText(Registrarse.this, "El Número de Teléfono es Incorrecto...", Toast.LENGTH_LONG).show();
                             mDialog.dismiss();
-                        }else if(edtTelefono.getText().toString().startsWith("9")) {
-                            Toast.makeText(Registrarse.this, "El Número de Teléfono es Incorrecto...", Toast.LENGTH_SHORT).show();
+                        } else if (edtTelefono.getText().toString().length() != 9) {
+                            Toast.makeText(Registrarse.this, "El Número de Teléfono Debe Tener 9 Dígitos...", Toast.LENGTH_LONG).show();
                             mDialog.dismiss();
-                        }else if (snapshot.child(edtTelefono.getText().toString()).exists()){
+                        } else if (snapshot.child(edtTelefono.getText().toString()).exists()) {
                             mDialog.dismiss();
-                            Toast.makeText(Registrarse.this, "Número de Teléfono ya Registrado..!!!", Toast.LENGTH_SHORT).show();
-                        }
-                        else {
+                            Toast.makeText(Registrarse.this, "Número de Teléfono ya Registrado..!!!", Toast.LENGTH_LONG).show();
+                        } else {
                             mDialog.dismiss();
 
-                            Usuario usuario = new Usuario(edtNombre.getText().toString(), edtComuna.getText().toString(),edtContraseña.getText().toString(),edtDireccion.getText().toString(), "Activo", edtMail.getText().toString(), Nombre,"Público en General");
+                            Usuario usuario = new Usuario(edtNombre.getText().toString(), edtComuna.getText().toString(), edtContraseña.getText().toString(), edtDireccion.getText().toString(), "Activo", edtMail.getText().toString(), Nombre, "Público en General");
 
-                            if(usuario.getContraseña().equals(edtConfirmacion.getText().toString())) {
-                                tabla_usuario.child(edtTelefono.getText().toString()).setValue(usuario);
-                                Toast.makeText(Registrarse.this, "Usuario Registrado Satisfactoriamente...!!!", Toast.LENGTH_SHORT).show();
-                                Intent publico = new Intent(Registrarse.this, PublicoGeneral.class);
-                                startActivity(publico);
-                                }else{
-                                Toast.makeText(Registrarse.this, "Las Contraseñas No Coinciden...!!!\nVuelva a Intentarlo", Toast.LENGTH_SHORT).show();
-                                Intent registro = new Intent(Registrarse.this, Registrarse.class);
-                                startActivity(registro);
-                                 }
-                        finish();
+                            if (!usuario.getContraseña().equals(edtConfirmacion.getText().toString())) {
+                                mDialog.dismiss();
+                                Toast.makeText(Registrarse.this, "Las Contraseñas No Coinciden...!!!\nVuelva a Intentarlo", Toast.LENGTH_LONG).show();
+                            } else {
+                                mDialog.dismiss();
+
+                                if (edtNombre.getText().toString().isEmpty()) {
+                                    Toast.makeText(Registrarse.this, "Todos los Campos son Requeridos...", Toast.LENGTH_LONG).show();
+                                    mDialog.dismiss();
+                                } else if (edtComuna.getText().toString().isEmpty()) {
+                                    Toast.makeText(Registrarse.this, "Todos los Campos son Requeridos...", Toast.LENGTH_LONG).show();
+                                    mDialog.dismiss();
+                                } else if (edtDireccion.getText().toString().isEmpty()) {
+                                    Toast.makeText(Registrarse.this, "Todos los Campos son Requeridos...", Toast.LENGTH_LONG).show();
+                                    mDialog.dismiss();
+                                } else if (edtContraseña.getText().toString().isEmpty()) {
+                                    Toast.makeText(Registrarse.this, "Todos los Campos son Requeridos...", Toast.LENGTH_LONG).show();
+                                    mDialog.dismiss();
+                                } else if (edtMail.getText().toString().isEmpty()) {
+                                    Toast.makeText(Registrarse.this, "Todos los Campos son Requeridos...", Toast.LENGTH_LONG).show();
+                                    mDialog.dismiss();
+                                } else if (!edtMail.getText().toString().contains("@")) {
+                                    Toast.makeText(Registrarse.this, "Por Favor, Ingrese Una Dirección de Correo Válida...", Toast.LENGTH_LONG).show();
+                                    mDialog.dismiss();
+                                } else if (!edtMail.getText().toString().contains(".")) {
+                                    Toast.makeText(Registrarse.this, "Por Favor, Ingrese Una Dirección de Correo Válida...", Toast.LENGTH_LONG).show();
+                                    mDialog.dismiss();
+                                } else {
+
+                                    tabla_usuario.child(edtTelefono.getText().toString()).setValue(usuario);
+                                    Toast.makeText(Registrarse.this, "Usuario Registrado Satisfactoriamente...!!!", Toast.LENGTH_LONG).show();
+                                    Intent ingresar = new Intent(Registrarse.this, Ingresar.class);
+                                    startActivity(ingresar);
+                                    finish();
+                                }
+
+                            }
+
                         }
                     }
 
@@ -117,11 +143,13 @@ public class Registrarse extends AppCompatActivity implements IPresenterView{
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 Log.d(TAG, "changed " + s.toString());
                 presenter.evaluatePass(s.toString());
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -137,18 +165,21 @@ public class Registrarse extends AppCompatActivity implements IPresenterView{
         textView.setText("Débil");
         textView.setTextColor(Color.WHITE);
     }
+
     @Override
     public void showMedium() {
         Log.d(TAG, "Media");
         textView.setBackgroundColor(Color.BLUE);
         textView.setText("Media");
     }
+
     @Override
     public void showStrong() {
         Log.d(TAG, "Segura");
         textView.setBackgroundColor(Color.YELLOW);
         textView.setText("Segura");
     }
+
     @Override
     public void showVeryStrong() {
         Log.d(TAG, "Muy Segura");
@@ -158,8 +189,8 @@ public class Registrarse extends AppCompatActivity implements IPresenterView{
 
     @Override
     public void onBackPressed() {
-        Intent main = new Intent(Registrarse.this, Ingresar.class);
-        startActivity(main);
+        Intent ingresar = new Intent(Registrarse.this, Ingresar.class);
+        startActivity(ingresar);
         finish();
         super.onBackPressed();
     }
