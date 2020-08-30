@@ -1,205 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linear1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_pantalla"
-    tools:context=".Registrarse">
+    android:layout_centerInParent="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
-        android:id="@+id/linear1"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_margin="10dp"
+        android:id="@+id/edtTelefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:hint="@string/n_mero_de_tel_fono"
+        android:inputType="phone"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtNombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:met_baseColor="@android:color/white"
+        app:met_floatingLabel="highlight"
+        app:met_maxCharacters="9"
+        app:met_minCharacters="9"
+        app:met_primaryColor="@android:color/white"
+        app:met_singleLineEllipsis="true" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+    <TextView
+        android:id="@+id/numero_fallido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtNombre"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            android:id="@+id/edtTelefono"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/n_mero_de_tel_fono"
-            android:inputType="phone"
-            android:text=""
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="16sp"
-            app:met_baseColor="@android:color/white"
-            app:met_floatingLabel="highlight"
-            app:met_maxCharacters="9"
-            app:met_minCharacters="9"
-            app:met_primaryColor="@android:color/white"
-            app:met_singleLineEllipsis="true" />
-        <TextView
-            android:textColor="@android:color/white"
-            android:textSize="10sp"
-            android:text=""
-            android:id="@+id/numero_fallido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_margin="10dp"
+        android:id="@+id/edtNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nombres_y_apellidos"
+        android:inputType="text"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtContraseña"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:met_baseColor="@android:color/white"
+        app:met_floatingLabel="highlight"
+        app:met_maxCharacters="50"
+        app:met_primaryColor="@android:color/white"
+        app:met_singleLineEllipsis="true" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+    <TextView
+        android:id="@+id/nombre_fallido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtContraseña"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            android:id="@+id/edtNombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/nombres_y_apellidos"
-            android:inputType="text"
-            android:text=""
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="16sp"
-            app:met_baseColor="@android:color/white"
-            app:met_floatingLabel="highlight"
-            app:met_maxCharacters="50"
-            app:met_primaryColor="@android:color/white"
-            app:met_singleLineEllipsis="true" />
-        <TextView
-            android:textColor="@android:color/white"
-            android:textSize="10sp"
-            android:text=""
-            android:id="@+id/nombre_fallido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_margin="10dp"
+        android:id="@+id/edtContraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/contraseña"
+        android:inputType="textPassword"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/nivel_seguridad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:met_baseColor="@android:color/white"
+        app:met_floatingLabel="highlight"
+        app:met_maxCharacters="50"
+        app:met_primaryColor="@android:color/white"
+        app:met_singleLineEllipsis="true" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+    <TextView
+        android:id="@+id/contraseña_fallido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/nivel_seguridad"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            android:id="@+id/edtContraseña"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/contraseña"
-            android:inputType="textPassword"
-            android:text=""
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="16sp"
-            app:met_baseColor="@android:color/white"
-            app:met_floatingLabel="highlight"
-            app:met_maxCharacters="50"
-            app:met_primaryColor="@android:color/white"
-            app:met_singleLineEllipsis="true" />
-        <TextView
-            android:textColor="@android:color/white"
-            android:textSize="10sp"
-            android:text=""
-            android:id="@+id/contraseña_fallido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/nivel_seguridad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nivel_de_seguridad"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/edtConfirmarContraseña"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/nivel_seguridad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
-            android:text="@string/nivel_de_seguridad" />
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_margin="10dp"
+        android:id="@+id/edtConfirmarContraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/confirmar_contraseña"
+        android:inputType="textPassword"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtDireccion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:met_baseColor="@android:color/white"
+        app:met_floatingLabel="highlight"
+        app:met_maxCharacters="50"
+        app:met_primaryColor="@android:color/white"
+        app:met_singleLineEllipsis="true" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_margin="10dp"
+        android:id="@+id/edtDireccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/dirección"
+        android:inputType="text"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtComuna"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:met_baseColor="@android:color/white"
+        app:met_floatingLabel="highlight"
+        app:met_maxCharacters="50"
+        app:met_primaryColor="@android:color/white"
+        app:met_singleLineEllipsis="true" />
 
-            android:id="@+id/edtConfirmarContraseña"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/confirmar_contraseña"
-            android:inputType="textPassword"
-            android:text=""
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="16sp"
-            app:met_baseColor="@android:color/white"
-            app:met_floatingLabel="highlight"
-            app:met_maxCharacters="50"
-            app:met_primaryColor="@android:color/white"
-            app:met_singleLineEllipsis="true" />
+    <TextView
+        android:id="@+id/direccion_fallido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtComuna"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_margin="10dp"
+        android:id="@+id/edtComuna"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/comuna"
+        android:inputType="text"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtMail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:met_baseColor="@android:color/white"
+        app:met_floatingLabel="highlight"
+        app:met_maxCharacters="50"
+        app:met_primaryColor="@android:color/white"
+        app:met_singleLineEllipsis="true" />
 
-            android:id="@+id/edtDireccion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/dirección"
-            android:inputType="text"
-            android:text=""
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="16sp"
-            app:met_baseColor="@android:color/white"
-            app:met_floatingLabel="highlight"
-            app:met_maxCharacters="50"
-            app:met_primaryColor="@android:color/white"
-            app:met_singleLineEllipsis="true" />
-        <TextView
-            android:textColor="@android:color/white"
-            android:textSize="10sp"
-            android:text=""
-            android:id="@+id/direccion_fallido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/comuna_fallido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtMail"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_margin="10dp"
+        android:id="@+id/edtMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/mail"
+        android:inputType="textWebEmailAddress"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrarse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:met_baseColor="@android:color/white"
+        app:met_floatingLabel="highlight"
+        app:met_maxCharacters="50"
+        app:met_primaryColor="@android:color/white"
+        app:met_singleLineEllipsis="true" />
 
-            android:id="@+id/edtComuna"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/comuna"
-            android:inputType="text"
-            android:text=""
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="16sp"
-            app:met_baseColor="@android:color/white"
-            app:met_floatingLabel="highlight"
-            app:met_maxCharacters="50"
-            app:met_primaryColor="@android:color/white"
-            app:met_singleLineEllipsis="true" />
-        <TextView
-            android:textColor="@android:color/white"
-            android:textSize="10sp"
-            android:text=""
-            android:id="@+id/comuna_fallido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/mail_fallido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrarse"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-
-            android:id="@+id/edtMail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/mail"
-            android:inputType="textWebEmailAddress"
-            android:text=""
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="16sp"
-            app:met_baseColor="@android:color/white"
-            app:met_floatingLabel="highlight"
-            app:met_maxCharacters="50"
-            app:met_primaryColor="@android:color/white"
-            app:met_singleLineEllipsis="true" />
-        <TextView
-            android:textColor="@android:color/white"
-            android:textSize="10sp"
-            android:text=""
-            android:id="@+id/mail_fallido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
 
     <Button
         android:id="@+id/btnRegistrarse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_margin="8dp"
         android:background="@android:color/black"
         android:text="REGISTRARSE"
         android:textColor="@android:color/white"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

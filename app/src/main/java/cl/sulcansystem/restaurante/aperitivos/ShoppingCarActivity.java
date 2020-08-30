@@ -42,7 +42,7 @@ public class ShoppingCarActivity extends AppCompatActivity {
 
         makeRequest.setOnClickListener(v -> {
             try {
-                Uri uri = Uri.parse("smsto" + "+56953827227");
+                Uri uri = Uri.parse("smsto" + "+999");
                 Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
                 intent.setPackage("com.whatsapp");
                 startActivity(intent);

@@ -81,7 +81,7 @@ public class Contactanos extends AppCompatActivity {
         llamar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialPhoneNumber("+56958737826");
+                dialPhoneNumber("+56225516570");
             }
         });
     }
