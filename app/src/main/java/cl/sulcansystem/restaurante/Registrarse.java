@@ -110,16 +110,17 @@ public class Registrarse extends AppCompatActivity implements IPresenterView {
                                     nombre_fallido.setText("Este Campo Es Requerido...");
                                     Toast.makeText(Registrarse.this, "Todos los Campos son Requeridos...", Toast.LENGTH_LONG).show();
                                     mDialog.dismiss();
-                                } else if (edtComuna.getText().toString().isEmpty()) {
-                                    comuna_fallida.setText("Este Campo Es Requerido...");
+                                } else if (edtContraseña.getText().toString().isEmpty()) {
+                                    contraseña_fallida.setText("Este Campo Es Requerido...");
                                     Toast.makeText(Registrarse.this, "Todos los Campos son Requeridos...", Toast.LENGTH_LONG).show();
                                     mDialog.dismiss();
+
                                 } else if (edtDireccion.getText().toString().isEmpty()) {
                                     direccion_fallida.setText("Este Campo Es Requerido...");
                                     Toast.makeText(Registrarse.this, "Todos los Campos son Requeridos...", Toast.LENGTH_LONG).show();
                                     mDialog.dismiss();
-                                } else if (edtContraseña.getText().toString().isEmpty()) {
-                                    contraseña_fallida.setText("Este Campo Es Requerido...");
+                                } else if  (edtComuna.getText().toString().isEmpty()) {
+                                    comuna_fallida.setText("Este Campo Es Requerido...");
                                     Toast.makeText(Registrarse.this, "Todos los Campos son Requeridos...", Toast.LENGTH_LONG).show();
                                     mDialog.dismiss();
                                 } else if (edtMail.getText().toString().isEmpty()) {

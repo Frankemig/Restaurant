@@ -25,6 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:elevation="20dp"
         android:id="@+id/btnnuestro_equipo"
         android:layout_width="100dp"
         android:layout_height="50dp"

@@ -1,13 +1,14 @@
 package cl.sulcansystem.restaurante.modelo;
 
 public class Local {
-
-    String nombreEmpresa, direccionEmpresa,razonSocial, rutEmpresa, telefonoFijo, whatsappLocal, whatsappGerente;
+    private int id;
+    private String nombreEmpresa, direccionEmpresa,razonSocial, rutEmpresa, telefonoFijo, whatsappLocal, whatsappGerente;
 
     public Local() {
     }
 
-    public Local(String nombreEmpresa, String direccionEmpresa, String razonSocial, String rutEmpresa, String telefonoFijo, String whatsappLocal, String whatsappGerente) {
+    public Local(int id, String nombreEmpresa, String direccionEmpresa, String razonSocial, String rutEmpresa, String telefonoFijo, String whatsappLocal, String whatsappGerente) {
+        this.id = id;
         this.nombreEmpresa = nombreEmpresa;
         this.direccionEmpresa = direccionEmpresa;
         this.razonSocial = razonSocial;
@@ -20,7 +21,8 @@ public class Local {
     @Override
     public String toString() {
         return "Local{" +
-                "nombreEmpresa='" + nombreEmpresa + '\'' +
+                "id=" + id +
+                ", nombreEmpresa='" + nombreEmpresa + '\'' +
                 ", direccionEmpresa='" + direccionEmpresa + '\'' +
                 ", razonSocial='" + razonSocial + '\'' +
                 ", rutEmpresa='" + rutEmpresa + '\'' +
@@ -28,6 +30,14 @@ public class Local {
                 ", whatsappLocal='" + whatsappLocal + '\'' +
                 ", whatsappGerente='" + whatsappGerente + '\'' +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombreEmpresa() {
