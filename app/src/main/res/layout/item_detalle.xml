@@ -6,8 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="15dp"
-    android:background="#FFFFFF"
+    android:layout_margin="20dp"
     app:cardElevation="20dp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,55 +16,55 @@
         <!-- Del JSON vamos a utilizar -->
         <!-- Imagen, Nombre, Precio, Descripción -->
          <TextView
+             android:textAlignment="center"
             android:textStyle="bold"
             android:id="@+id/tvId"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Nombre"
             android:textColor="@android:color/black"
-            android:textSize="22sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:background="@android:color/black"
-            android:layout_marginTop="5dp"
             android:id="@+id/imageViewAvatar"
             android:layout_width="300dp"
             android:layout_height="200dp"
+            android:background="@android:color/black"
             android:foregroundGravity="center"
             android:src="@drawable/ic_fondos"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvId" />
+            app:layout_constraintTop_toBottomOf="@+id/txTitle" />
 
         <ImageView
             android:id="@+id/ivCar"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_margin="5dp"
             android:src="@drawable/ic_pedir_on_line"
             app:layout_constraintStart_toStartOf="@+id/imageViewAvatar"
             app:layout_constraintTop_toBottomOf="@+id/imageViewAvatar" />
 
         <TextView
-            android:background="#4A000000"
+            android:layout_margin="5dp"
             android:id="@+id/txTitle"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:background="#68000000"
             android:gravity="center"
             android:text=""
             android:textColor="@android:color/white"
-            android:textSize="15sp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvPrecio" />
+            app:layout_constraintTop_toBottomOf="@+id/tvId" />
 
         <ImageView
-
+android:layout_margin="5dp"
             android:id="@+id/logo_details"
             android:layout_width="120dp"
             android:layout_height="80dp"
@@ -76,13 +75,14 @@
 
         <TextView
             android:id="@+id/tvPrecio"
-            android:layout_width="150dp"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:gravity="center"
             android:text="$ 00.000"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAvatar"
             app:layout_constraintTop_toBottomOf="@+id/imageViewAvatar" />
