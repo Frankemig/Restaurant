@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <!-- Del JSON vamos a utilizar -->
+        <!-- Cantidad, Nombre, Precio -->
+    <TextView
+        android:id="@+id/tvCantidad"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/fondo_pantalla"
+        android:gravity="center"
+        android:text="00"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvId"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:background="@android:color/white"
+        android:id="@+id/tvId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="Nombre"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvPrecio"
+        app:layout_constraintStart_toEndOf="@+id/tvCantidad"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivCar"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/menos_foreground"
+        app:layout_constraintStart_toStartOf="@+id/tvCantidad"
+        app:layout_constraintTop_toBottomOf="@+id/tvCantidad" />
+
+    <ImageView
+        android:id="@+id/ivCarAdd"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/mas_foreground"
+        app:layout_constraintEnd_toEndOf="@+id/tvCantidad"
+        app:layout_constraintTop_toBottomOf="@+id/tvCantidad" />
+
+    <TextView
+        android:background="@android:color/white"
+        android:id="@+id/tvPrecio"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="$ 00.000"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvId"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:outlineSpotShadowColor="@android:color/white"
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="60dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:outlineSpotShadowColor="@android:color/white"
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="265dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:outlineSpotShadowColor="@android:color/white"
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="32dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>

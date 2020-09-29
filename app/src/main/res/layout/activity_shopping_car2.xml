@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_pantalla"
+    tools:context=".aperitivos.ShoppingCarActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/shopping_car"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/tvSubTotal"
+            app:layout_constraintTop_toBottomOf="@+id/tvId" />
+
+        <ImageView
+            android:id="@+id/logo_pie"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="6dp"
+            android:foregroundGravity="center"
+            android:src="@drawable/logoapp3"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toStartOf="@+id/txtPropina"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shopping_car" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            android:text="Confirmar Pedido"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCantidad"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@android:color/black"
+            android:gravity="center"
+            android:text="Cant"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvId"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvId"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@android:color/black"
+            android:gravity="center"
+            android:text="Producto"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvPrecio"
+            app:layout_constraintStart_toEndOf="@+id/tvCantidad"
+            app:layout_constraintTop_toBottomOf="@+id/direccion_empresa" />
+
+        <TextView
+            android:id="@+id/tvPrecio"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@android:color/black"
+            android:gravity="center"
+            android:text="Precio"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvId"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/txtSub_Total"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="Total"
+            android:layout_marginEnd="5dp"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/txtPropina"
+            app:layout_constraintEnd_toStartOf="@+id/tvSubTotal"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/tvSubTotal"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:text="$ 00.000"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tvPropina"
+            app:layout_constraintEnd_toEndOf="@+id/tvPropina" />
+
+        <TextView
+            android:id="@+id/tvTotal_con_Propina"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:hint="Total c/ Propina"
+            android:text="$ 00.000"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="@+id/tvPrecio" />
+
+        <TextView
+            android:layout_marginEnd="5dp"
+            android:id="@+id/txtTotal"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="Total c/ Propina"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvTotal_con_Propina"
+            app:layout_constraintEnd_toStartOf="@+id/tvTotal_con_Propina" />
+
+        <TextView
+            android:layout_marginEnd="5dp"
+            android:id="@+id/txtPropina"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="Propina Sugerida"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/txtTotal"
+            app:layout_constraintEnd_toStartOf="@+id/tvPropina" />
+
+        <TextView
+            android:id="@+id/tvPropina"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:hint="Total c/ Propina"
+            android:text="$ 00.000"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tvTotal_con_Propina"
+            app:layout_constraintEnd_toEndOf="@+id/tvTotal_con_Propina" />
+
+        <TextView
+            android:id="@+id/fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Fecha:"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/nombre_empresa"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/nombre_empresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Bien Taypá"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/direccion_empresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Sierra Bella N° 1501 - Santiago"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nombre_empresa" />
+
+        <TextView
+            android:id="@+id/telefono_empresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Fono: 2 2551 6570"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/direccion_empresa"
+            app:layout_constraintStart_toEndOf="@+id/direccion_empresa" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
