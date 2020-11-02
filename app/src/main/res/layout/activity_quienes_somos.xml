@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:fitsSystemWindows="true"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,11 +9,18 @@
     tools:listitem="@layout/item_empleado"
     android:background="@drawable/fondo_pantalla">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/título_quienes_somos" />
 
     <TextView
-        android:textStyle="bold"
         android:id="@+id/título_quienes_somos"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_margin="5dp"
         android:gravity="center"
@@ -20,57 +28,24 @@
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:elevation="20dp"
-        android:id="@+id/btnnuestro_equipo"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_margin="15dp"
-        android:background="#ff0000"
-        android:text="Nuestro Equipo"
-        android:textColor="#ffffff"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:layout_margin="15dp"
-        android:textStyle="bold"
-        android:id="@+id/btnRestaurante"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:background="#ff0000"
-        android:text="Restaurant"
-        android:textColor="#ffffff"
-        android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnEventos"
-        app:layout_constraintStart_toEndOf="@+id/btnnuestro_equipo" />
-
-    <Button
-        android:layout_margin="15dp"
-        android:textStyle="bold"
-        android:id="@+id/btnEventos"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:background="#ff0000"
-        android:text="Eventos"
-        android:textColor="#ffffff"
-        android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <FrameLayout
-        android:id="@+id/container"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/buttonNavigation"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnRestaurante"
-        app:layout_constraintTop_toBottomOf="@+id/título_quienes_somos">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        app:itemBackground="@color/colorPrimaryDark"
+        app:itemIconTint="@color/colorAccent"
+        app:itemTextColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/nav_menu">
 
-    </FrameLayout>
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>

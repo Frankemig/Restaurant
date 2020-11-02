@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import cl.sulcansystem.restaurante.Contactanos;
 import cl.sulcansystem.restaurante.Ingresar;
-import cl.sulcansystem.restaurante.MainActivity;
 import cl.sulcansystem.restaurante.Menu;
 import cl.sulcansystem.restaurante.QuienesSomos;
 import cl.sulcansystem.restaurante.R;
@@ -41,7 +40,7 @@ public static String txtUsuario = Ingresar.Nombre;
         txtQuienesSomos = (TextView)findViewById(R.id.txtquienes_somos);
         txtContactanos = (TextView)findViewById(R.id.txtcontactanos);
 
-        Typeface face = Typeface.createFromAsset(getAssets(),"fuentes/SCRIPTBL.TTF");
+        Typeface face = Typeface.createFromAsset(getAssets(), "fuentes/scrip.ttf");
         txtBienvenido.setTypeface(face);
         txtNombreUsuario.setTypeface(face);
         txtContactanos.setTypeface(face);

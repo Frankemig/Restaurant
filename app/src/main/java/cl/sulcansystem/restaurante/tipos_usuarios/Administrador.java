@@ -29,7 +29,7 @@ public class Administrador extends AppCompatActivity {
         txt_cajero = (TextView) findViewById(R.id.txtvista_cajero);
         bienvenido_admin = (TextView) findViewById(R.id.txtBienvenido_administrador);
 
-        Typeface face = Typeface.createFromAsset(getAssets(), "fuentes/SCRIPTBL.TTF");
+        Typeface face = Typeface.createFromAsset(getAssets(), "fuentes/scrip.ttf");
         bienvenido_admin.setText("Bienvenido(a) " + Nombre);
         bienvenido_admin.setTypeface(face);
         txt_usuarios.setTypeface(face);

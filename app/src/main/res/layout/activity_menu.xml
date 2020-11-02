@@ -8,214 +8,193 @@
     android:id="@+id/drawer"
     tools:context=".Menu">
 
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/drawer_toobar">
-    </include>
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/drawer_contenedor">
-    </include>
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:menu="@menu/home"
-        app:headerLayout="@layout/drawer_cabecera"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"/>
+        android:background="@drawable/fondo_pantalla">
 
-
-<androidx.constraintlayout.widget.ConstraintLayout
-
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/fondo_pantalla">
-
-    <TextView
-        android:id="@+id/menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Menú"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/logo_pie"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <ImageView
-            android:id="@+id/aperitivo"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp"
+        <TextView
+            android:id="@+id/menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Menú"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_aperitivos" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/txt_aperitivo"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:text="Aperitivo"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/aperitivo"
-            app:layout_constraintStart_toStartOf="@+id/aperitivo"
-            app:layout_constraintTop_toBottomOf="@+id/aperitivo" />
-
-        <ImageView
-            android:id="@+id/vinos"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/logo_pie"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_vino" />
-
-        <TextView
-            android:id="@+id/txt_vinos"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:text="Vinos"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="16dp"
-            app:layout_constraintStart_toStartOf="@+id/vinos"
-            app:layout_constraintTop_toBottomOf="@+id/vinos" />
-
-        <ImageView
-            android:id="@+id/jugos_bebidas"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp"
-            app:layout_constraintEnd_toStartOf="@+id/vinos"
-            app:layout_constraintStart_toEndOf="@+id/aperitivo"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_bebestibles" />
-
-        <TextView
-            android:id="@+id/txt_bebestibles"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:text="Jugos y\nBebidas"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/jugos_bebidas"
-            app:layout_constraintStart_toStartOf="@+id/jugos_bebidas"
-            app:layout_constraintTop_toBottomOf="@+id/jugos_bebidas" />
-
-        <ImageView
-            android:id="@+id/entradas"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_aperitivo"
-            app:srcCompat="@drawable/ic_entrada" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/txt_entradas"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:text="Entradas"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/entradas"
-            app:layout_constraintStart_toStartOf="@+id/entradas"
-            app:layout_constraintTop_toBottomOf="@+id/entradas" />
+
+            <ImageView
+                android:id="@+id/aperitivo"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_aperitivos" />
+
+            <TextView
+                android:id="@+id/txt_aperitivo"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Aperitivo"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/aperitivo"
+                app:layout_constraintStart_toStartOf="@+id/aperitivo"
+                app:layout_constraintTop_toBottomOf="@+id/aperitivo" />
+
+            <ImageView
+                android:id="@+id/vinos"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_vino" />
+
+            <TextView
+                android:id="@+id/txt_vinos"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Vinos"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/vinos"
+                app:layout_constraintTop_toBottomOf="@+id/vinos" />
+
+            <ImageView
+                android:id="@+id/jugos_bebidas"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/vinos"
+                app:layout_constraintStart_toEndOf="@+id/aperitivo"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_bebestibles" />
+
+            <TextView
+                android:id="@+id/txt_bebestibles"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Jugos y\nBebidas"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/jugos_bebidas"
+                app:layout_constraintStart_toStartOf="@+id/jugos_bebidas"
+                app:layout_constraintTop_toBottomOf="@+id/jugos_bebidas" />
+
+            <ImageView
+                android:id="@+id/entradas"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_aperitivo"
+                app:srcCompat="@drawable/ic_entrada" />
+
+            <TextView
+                android:id="@+id/txt_entradas"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Entradas"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/entradas"
+                app:layout_constraintStart_toStartOf="@+id/entradas"
+                app:layout_constraintTop_toBottomOf="@+id/entradas" />
+
+            <ImageView
+                android:id="@+id/fondos"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/postres"
+                app:layout_constraintStart_toEndOf="@+id/entradas"
+                app:layout_constraintTop_toBottomOf="@+id/txt_bebestibles"
+                app:srcCompat="@drawable/ic_fondos" />
+
+            <TextView
+                android:id="@+id/txt_fondos"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Fondos"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/fondos"
+                app:layout_constraintStart_toStartOf="@+id/fondos"
+                app:layout_constraintTop_toBottomOf="@+id/fondos" />
+
+            <ImageView
+                android:id="@+id/postres"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_vinos"
+                app:srcCompat="@drawable/ic_postres_cafe" />
+
+            <TextView
+                android:id="@+id/txt_postres"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Postres y\nCafés"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/postres"
+                app:layout_constraintStart_toStartOf="@+id/postres"
+                app:layout_constraintTop_toBottomOf="@+id/postres" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/fondos"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp"
-            app:layout_constraintEnd_toStartOf="@+id/postres"
-            app:layout_constraintStart_toEndOf="@+id/entradas"
-            app:layout_constraintTop_toBottomOf="@+id/txt_bebestibles"
-            app:srcCompat="@drawable/ic_fondos" />
-
-        <TextView
-            android:id="@+id/txt_fondos"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:text="Fondos"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="16dp"
+            android:id="@+id/logo_pie"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:foregroundGravity="center"
+            android:src="@drawable/logoapp3"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/fondos"
-            app:layout_constraintStart_toStartOf="@+id/fondos"
-            app:layout_constraintTop_toBottomOf="@+id/fondos" />
-
-        <ImageView
-            android:id="@+id/postres"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_vinos"
-            app:srcCompat="@drawable/ic_postres_cafe" />
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/txt_postres"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:text="Postres y\nCafés"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="16dp"
+        <ImageButton
+            android:id="@+id/bt_whatsapp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/ic_carrito"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/postres"
-            app:layout_constraintStart_toStartOf="@+id/postres"
-            app:layout_constraintTop_toBottomOf="@+id/postres" />
-
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/logo_pie"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:foregroundGravity="center"
-        android:src="@drawable/logoapp3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/bt_whatsapp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/ic_carrito"        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

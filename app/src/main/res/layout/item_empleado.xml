@@ -10,7 +10,7 @@
         android:id="@+id/foto_empleado"
         android:layout_width="150dp"
         android:layout_height="200dp"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -33,13 +33,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:padding="3dp"
+        android:fontFamily="@font/matrix_bold"
         android:id="@+id/nombre_empleado"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="center"
         android:text="Nombre Empleado"
-        android:textColor="#ff0000"
+        android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/foto_empleado"
@@ -47,6 +49,8 @@
         app:layout_constraintTop_toBottomOf="@+id/titulo_item_empleado" />
 
     <TextView
+        android:padding="3dp"
+        android:fontFamily="@font/matrix_book"
         android:id="@+id/descripcion_empleado"
         android:layout_width="200dp"
         android:layout_height="wrap_content"

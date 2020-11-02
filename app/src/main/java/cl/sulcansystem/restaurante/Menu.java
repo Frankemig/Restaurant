@@ -2,7 +2,6 @@ package cl.sulcansystem.restaurante;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -43,7 +42,7 @@ public class Menu extends AppCompatActivity {
         logo = (ImageView)findViewById(R.id.logo_pie);
         whatsapp = findViewById(R.id.bt_whatsapp);
 
-        Typeface face = Typeface.createFromAsset(getAssets(),"fuentes/SCRIPTBL.TTF");
+        Typeface face = Typeface.createFromAsset(getAssets(), "fuentes/scrip.ttf");
         menu.setTypeface(face);
         txt_aperitivos.setTypeface(face);
         txt_bebestibles.setTypeface(face);

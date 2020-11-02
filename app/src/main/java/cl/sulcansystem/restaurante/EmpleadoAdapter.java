@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import cl.sulcansystem.restaurante.modelo.Empleado;
+import de.hdodenhof.circleimageview.CircleImageView;
 import timber.log.Timber;
 
 class EmpleadoAdapter extends RecyclerView.Adapter<EmpleadoAdapter.EmpleadoViewHolder> {
@@ -36,6 +37,7 @@ private List<Empleado>listaEmpleados;
     public void onBindViewHolder(@NonNull EmpleadoViewHolder holder, int position) {
         Empleado empleado = listaEmpleados.get(position);
         holder.bind(empleado);
+
     }
 
     @Override
@@ -55,6 +57,13 @@ private List<Empleado>listaEmpleados;
             nombre_empleado = itemView.findViewById(R.id.nombre_empleado);
             descripcion_empleado = itemView.findViewById(R.id.descripcion_empleado);
             fotoEmpleado = itemView.findViewById(R.id.foto_empleado);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
         }
         public void bind(Empleado empleado) {
             Timber.d("bind() called with: empleado = [" + empleado + "]");
