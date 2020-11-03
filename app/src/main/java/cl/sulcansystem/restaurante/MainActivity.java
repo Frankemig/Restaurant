@@ -41,10 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         txtBienvenido = (TextView) findViewById(R.id.txtBienvenido);
         txtSlogan = (TextView) findViewById(R.id.txtSlogan);
-        Typeface face = Typeface.createFromAsset(getAssets(), "fuentes/scrip.ttf");
 
-        txtSlogan.setTypeface(face);
-        txtBienvenido.setTypeface(face);
 
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override

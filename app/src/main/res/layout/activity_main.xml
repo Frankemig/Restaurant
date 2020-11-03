@@ -14,8 +14,9 @@
         android:orientation="vertical">
 
         <TextView
+            android:fontFamily="@font/birdsof_paradise"
             android:id="@+id/txtBienvenido"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/bienvenido"
@@ -28,6 +29,7 @@
             android:src="@drawable/logoapp3" />
 
         <TextView
+            android:fontFamily="@font/matrix_book"
             android:id="@+id/txtSlogan"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -46,6 +48,7 @@
         android:weightSum="2">
 
         <Button
+            android:fontFamily="@font/matrix_bold"
             android:id="@+id/btnIngresar"
             android:layout_width="150dp"
             android:layout_height="50dp"
@@ -58,6 +61,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
+            android:fontFamily="@font/matrix_bold"
             android:id="@+id/btnRegistrarse"
             android:layout_width="150dp"
             android:layout_height="50dp"

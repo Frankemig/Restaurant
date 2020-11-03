@@ -8,11 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import cl.sulcansystem.restaurante.tipos_usuarios.PublicoGeneral;
 
 public class Contactanos extends AppCompatActivity {
 
     ImageView facebook, instagram, web, consultas, llamar, pedidos, mail, msn, mapa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,13 +53,23 @@ public class Contactanos extends AppCompatActivity {
         consultas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                link("https://wa.me/56958737826/?text=Hola,%20quisiera%20hacer%20una%20consulta...");
+                try {
+                    sentWhatsapp("+56958737826", "Hola, Quisiera hacerle una consulta...");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
             }
         });
         pedidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                link("https://wa.me/56948120976/?text=Hola,%20quisiera%20hacer%20un%20pedido...");
+
+                try {
+                    sentWhatsapp("+56948120976", "Hola, Quisiera hacer un pedido...");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
         mapa.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +82,7 @@ public class Contactanos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String[] addresses = new String[1];
-                addresses[0] =  "reservas@bientaypa.cl";
+                addresses[0] = "reservas@bientaypa.cl";
                 composeEmail(addresses, "Reserva");
             }
         });
@@ -104,17 +118,25 @@ public class Contactanos extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent publicoGeneral = new Intent(Contactanos.this, PublicoGeneral.class);
-        startActivity(publicoGeneral);
-        finish();
-        super.onBackPressed();
+    public void sentWhatsapp(String number, String message) throws UnsupportedEncodingException {
+
+        String url = "https://api.whatsapp.com/send?phone=" + number + "&text=" + URLEncoder.encode(message, "UTF-8");
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
     }
 
     public void link(String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent publicoGeneral = new Intent(Contactanos.this, PublicoGeneral.class);
+        startActivity(publicoGeneral);
+        finish();
+        super.onBackPressed();
     }
 }

@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <item
     android:id="@+id/nuestro_equipo"
-    android:title="Nuestro Equipo"
-    android:icon="@drawable/ic_nuestro_equipo"/>
+    android:title="@string/nuestro_equipo"
+    android:icon="@drawable/ic_nuestro_equipo" />
 
     <item
         android:id="@+id/restaurant"
-        android:title="Restaurante"
+        android:title="@string/restaurante"
         android:icon="@drawable/ic_menu"/>
 
     <item
         android:id="@+id/eventos"
-        android:title="Eventos"
+        android:title="@string/eventos"
         android:icon="@drawable/ic_galeria"/>
 </menu>

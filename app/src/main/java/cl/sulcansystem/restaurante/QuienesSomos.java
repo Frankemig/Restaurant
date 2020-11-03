@@ -25,7 +25,8 @@ import cl.sulcansystem.restaurante.tipos_usuarios.PublicoGeneral;
 
 public class QuienesSomos extends AppCompatActivity {
 
-BottomNavigationView bottomNavigationView;
+    BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,28 +34,28 @@ BottomNavigationView bottomNavigationView;
 
         showSelectedFragment(new NuestroEquipo());
 
-bottomNavigationView = findViewById(R.id.buttonNavigation);
+        bottomNavigationView = findViewById(R.id.buttonNavigation);
 
-bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        if (item.getItemId()==R.id.nuestro_equipo){
-            showSelectedFragment(new NuestroEquipo());
+                        if (item.getItemId() == R.id.nuestro_equipo) {
+                            showSelectedFragment(new NuestroEquipo());
 
-        }else if (item.getItemId()==R.id.restaurant){
-            showSelectedFragment(new Restaurant());
+                        } else if (item.getItemId() == R.id.restaurant) {
+                            showSelectedFragment(new Restaurant());
 
-        }else if (item.getItemId()==R.id.eventos){
-            showSelectedFragment(new EventosVista());
-        }
-
-        return true;
+                        } else if (item.getItemId() == R.id.eventos) {
+                            showSelectedFragment(new EventosVista());
+                        }
+                        return true;
+                    }
+                });
     }
-});
 
-    }
-    private void showSelectedFragment(Fragment fragment){
+    private void showSelectedFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
